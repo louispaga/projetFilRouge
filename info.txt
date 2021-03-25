@@ -1,0 +1,11 @@
+générer requirements auto 
+https://pypi.org/project/pipreqs/
+
+avec pdfplumber afficher texte d'un pdf:
+text = ""
+with pdfplumber.open(path) as pdf:
+    for i in range(numPages):
+        page = pdf.pages[i]
+        text += page.extract_text()
+print(text)
+dic["data"] = text
