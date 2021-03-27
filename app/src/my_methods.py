@@ -81,7 +81,6 @@ def getMetaDataAndData(path, extension):
     return metadata, data
 
 def allowed_file(filename):
-    print(filename)
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in CONST.ALLOWED_EXTENSIONS
 
 def get_labeled_exif(exif):

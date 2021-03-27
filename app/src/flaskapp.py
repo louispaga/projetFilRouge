@@ -12,11 +12,8 @@ import os
 import json
 import my_methods
 import CONST
-
-#create an instance of the class
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = CONST.REPO_PATH
-api = Api(app)
+import boto3
+import uuid
 
 class upload(Resource):
     
@@ -44,11 +41,18 @@ class upload(Resource):
                 json_object = json.dumps(dicUser, indent = 4)
             else:
                 json_object = {"error" : "a problem happened while extracting metadata and data"}
-            #we save the json_object into a file
-            with open(app.config['UPLOAD_FOLDER'] + filename + '.json', "w") as jsonFile:
+            #we save the json_object into a file 
+            with open(app.config['UPLOAD_FOLDER'] + 'temp.json', "w") as jsonFile:
                 jsonFile.write(json_object)
-            #we remove the temporary file
+            #we save the json file into the s3 bucket 
+            with open(app.config['UPLOAD_FOLDER'] + 'temp.json', "rb") as jsondata:
+                s3 = boto3.client('s3')
+                json_name = str(uuid.uuid4())
+                #check if the id is already used
+                s3.upload_fileobj(jsondata, CONST.BUCKET_NAME,json_name + '.json')
+            #we remove the temporary files
             os.remove(os.path.join(app.config['UPLOAD_FOLDER'], data.filename))
+            os.remove(os.path.join(app.config['UPLOAD_FOLDER'], 'temp.json'))
             
             #we return the json object to the user
             return json_object
@@ -56,8 +60,16 @@ class upload(Resource):
         else: 
             return {"error" : "the format is not correct, this API accepts .txt, .pdf, .csv, .jpeg"}
     
-api.add_resource(upload, "/upload")
+
 
 #run the app
 if __name__ == '__main__':
+    CONST.CURRENT_DIRECTORY = os.getcwd() 
+    REPO_PATH = CONST.CURRENT_DIRECTORY + "/temprepository/"
+
+    app = Flask(__name__)
+    app.config['UPLOAD_FOLDER'] = CONST.REPO_PATH
+    api = Api(app)
+    api.add_resource(upload, "/upload")
+
     app.run(host=CONST.ADRESS, port=CONST.PORT)

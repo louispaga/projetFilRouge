@@ -4,7 +4,7 @@ import unittest
 import CONST
 from PyPDF2 import PdfFileReader
 
-
+#TEST_FILES_PATH = CURRENT_DIRECTORY + "/../testFiles/"
 
 
 textfile = {"file" : open("/home/louis/filRouge/projetFilRouge/testFiles/testtext.txt", "r")}
@@ -20,7 +20,7 @@ print(r)
 pdf = {"file" : open("/home/louis/filRouge/projetFilRouge/testFiles/testpdf.pdf", "rb") }
 r=requests.post(CONST.ADRESS_TEST + "/upload", files = pdf)
 r = r.json()
-#print(r)
+print(r)
 
 csv = {"file" : open("/home/louis/filRouge/projetFilRouge/testFiles/airtravel.csv", encoding='utf-8') }
 r=requests.post(CONST.ADRESS_TEST + "/upload", files = csv)

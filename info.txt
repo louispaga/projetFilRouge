@@ -1,5 +1,8 @@
 générer requirements auto 
 https://pypi.org/project/pipreqs/
+pipreqs ~/filRouge/projetFilRouge/app/ --force
+
+Ctrl+K+C/Ctrl+K+U
 
 avec pdfplumber afficher texte d'un pdf:
 text = ""
@@ -9,3 +12,9 @@ with pdfplumber.open(path) as pdf:
         text += page.extract_text()
 print(text)
 dic["data"] = text
+
+api S3 
+https://realpython.com/python-boto3-aws-s3/#naming-your-files
+
+build and run the python app into a container:
+docker build --tag flaskapp .

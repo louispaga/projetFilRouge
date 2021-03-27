@@ -10,10 +10,11 @@ import os
 #image extensions the API accepts
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'txt', 'pdf', 'csv'}
 #path to the storage location
-CURRENT_DIRECTORY = os.getcwd() 
-REPO_PATH = CURRENT_DIRECTORY + "/../temprepository/"
-TEST_FILES_PATH = CURRENT_DIRECTORY + "/../testFiles/"
+CURRENT_DIRECTORY = "" 
+REPO_PATH = ""
 #IP adress and port to connect to the API
-ADRESS = '127.0.0.1'
+ADRESS = '0.0.0.0'
 PORT = 5000
-ADRESS_TEST = 'http://127.0.0.1:5000'
+ADRESS_TEST = 'http://0.0.0.0:5000'
+#AWS 
+BUCKET_NAME = 'filrougestorage'

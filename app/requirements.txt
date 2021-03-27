@@ -1,5 +1,6 @@
 requests==2.22.0
-Flask==1.1.2
 Flask_RESTful==0.3.8
+boto3==1.16.56
+Flask==1.1.2
 Pillow==8.1.2
 PyPDF2==1.26.0
