@@ -1,8 +1,20 @@
-version: "3"
+version: "3.5"
 services:
   flaskapp:
-    build: app
+    build: ./app
+    environment: 
+      - AWS_SHARED_CREDENTIALS_FILE=/aws/credentials
+      - AWS_PROFILE=csloginteacher
+      - AWS_PROFILE=csloginstudent
+    volumes:
+     - ./app/put_yr_credentials_here/credentials:/aws/credentials
+  nginx:
+    image: nginx:latest
     ports:
-     - "5000:5000"
-volumes:
-  cred:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - flaskapp
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+

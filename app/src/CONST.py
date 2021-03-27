@@ -15,6 +15,6 @@ REPO_PATH = ""
 #IP adress and port to connect to the API
 ADRESS = '0.0.0.0'
 PORT = 5000
-ADRESS_TEST = 'http://0.0.0.0:5000'
+ADRESS_TEST = 'http://172.18.0.5:80'
 #AWS 
 BUCKET_NAME = 'filrougestorage'
