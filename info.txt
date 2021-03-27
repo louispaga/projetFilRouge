@@ -18,3 +18,4 @@ https://realpython.com/python-boto3-aws-s3/#naming-your-files
 
 build and run the python app into a container:
 docker build --tag flaskapp .
+docker run --publish 5000:5000 flaskapp

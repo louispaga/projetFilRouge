@@ -1,0 +1,9 @@
+you need to put in this folder your credentials file with the following structure:
+[csloginteacher]
+aws_access_key_id=""
+aws_secret_access_key=""
+   
+[csloginstudent]
+role_arn = ""
+source_profile = csloginteacher
+region=""

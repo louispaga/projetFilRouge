@@ -4,10 +4,5 @@ services:
     build: app
     ports:
      - "5000:5000"
-    environment:
-     - AWS_PROFILE=csloginteacher
-     - AWS_PROFILE=csloginstudent
-    volumes:
-     - cred:/home/.aws/credentials
 volumes:
   cred:
