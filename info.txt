@@ -26,7 +26,7 @@ voir config nginx
 https://www.nginx.com/blog/load-balancing-with-nginx-plus-part-2/
 
 se connecter ec2:
-ssh -i ec2louis.pem ubuntu@54.237.65.2
+ssh -i ec2louis.pem ubuntu@filrouge.louis.p2021.ajoga.fr
 
 installer docker et docker-compose:
 sudo snap install docker
