@@ -21,3 +21,22 @@ docker build --tag flaskapp .
 docker run --publish 5000:5000 flaskapp
 
 docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+
+voir config nginx
+https://www.nginx.com/blog/load-balancing-with-nginx-plus-part-2/
+
+se connecter ec2:
+ssh -i ec2louis.pem ubuntu@54.237.65.2
+
+installer docker et docker-compose:
+sudo snap install docker
+docker-compose:https://docs.docker.com/compose/install/
+sudo docker system prune -a
+
+expose vs ports:
+https://stackoverflow.com/questions/40801772/what-is-the-difference-between-docker-compose-ports-vs-expose
+
+generate a new user:
+https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/
+limit key:
+https://www.nginx.com/blog/rate-limiting-nginx/
