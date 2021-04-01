@@ -78,8 +78,8 @@ def getMetaDataAndData(path, extension):
         )  
         Labels_dictionary = {}
         for k in range(len(labels["Labels"])):
-            Labels_dictionary[labels["Labels"][k]["Name"]] = "Confiance de" + str(labels["Labels"][k]["Confidence"])
-            metadata["Labels detected"] = Labels_dictionary
+            Labels_dictionary[labels["Labels"][k]["Name"]] = " " + str(labels["Labels"][k]["Confidence"])
+            metadata["Labels detected with AI"] = Labels_dictionary
         #data
         with open(path, "rb") as im:
             img_64 = base64.b64encode(im.read()).decode('utf-8')
