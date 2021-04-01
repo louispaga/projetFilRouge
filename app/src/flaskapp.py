@@ -71,11 +71,12 @@ if __name__ == '__main__':
     api = Api(app)
     api.add_resource(upload, "/upload")
 
-    CONST.SWAGGER_PATH = CONST.CURRENT_DIRECTORY + '/../static/'
+    CONST.SWAGGER_PATH = CONST.CURRENT_DIRECTORY + '/../static/' + 'swagger.json'
+    print(CONST.SWAGGER_PATH)
     swaggerui_blueprint = get_swaggerui_blueprint(
         '/swagger',
         CONST.SWAGGER_PATH,
-        config={'app_name': "Louis Paganin - Fil Rouge"}
+        config={'app_name': "API FIL ROUGE LOUIS"}
     )
     app.register_blueprint(swaggerui_blueprint, url_prefix='/swagger')
     app.run(host=CONST.ADRESS, port=CONST.PORT)
