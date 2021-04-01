@@ -85,7 +85,7 @@ if __name__ == '__main__':
     swaggerui_blueprint = get_swaggerui_blueprint(
         '/swagger',
         CONST.SWAGGER_PATH + 'swagger.json',
-        config={'app_name': "Paul-BOISSON-Fil-Rouge"}
+        config={'app_name': "Louis Paganin - Fil Rouge"}
     )
     app.register_blueprint(swaggerui_blueprint, url_prefix='/swagger')
 
