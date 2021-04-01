@@ -74,13 +74,6 @@ if __name__ == '__main__':
     CONST.CURRENT_DIRECTORY = os.getcwd() 
     REPO_PATH = CONST.CURRENT_DIRECTORY + "/temprepository/"
 
-
-    app = Flask(__name__)
-    app.config['UPLOAD_FOLDER'] = CONST.REPO_PATH
-    api = Api(app)
-    api.add_resource(upload, "/upload")
-    api.add_resource(swagger, "/swagger")
-
     CONST.SWAGGER_PATH = CONST.CURRENT_DIRECTORY + '/../static/'
     swaggerui_blueprint = get_swaggerui_blueprint(
         '/swagger',
@@ -89,5 +82,10 @@ if __name__ == '__main__':
     )
     app.register_blueprint(swaggerui_blueprint, url_prefix='/swagger')
 
-
+    app = Flask(__name__)
+    app.config['UPLOAD_FOLDER'] = CONST.REPO_PATH
+    api = Api(app)
+    api.add_resource(upload, "/upload")
+    api.add_resource(swagger, "/swagger")
+    
     app.run(host=CONST.ADRESS, port=CONST.PORT)
