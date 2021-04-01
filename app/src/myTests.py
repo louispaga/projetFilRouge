@@ -9,7 +9,7 @@ from requests.auth import HTTPBasicAuth
 auth = HTTPBasicAuth('louis', 'paganin')
 
 textfile = {"file" : open("/home/louis/filRouge/projetFilRouge/testFiles/testtext.txt", "r")}
-r=requests.post(CONST.ADRESS_TEST + '/upload', auth=auth, files = textfile)
+r=requests.post(CONST.ADRESS_TEST + '/upload', files = textfile)
 r = r.json()
 print(r)
 
