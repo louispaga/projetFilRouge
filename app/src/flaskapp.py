@@ -61,31 +61,21 @@ class upload(Resource):
         else: 
             return {"error" : "the format is not correct, this API accepts .txt, .pdf, .csv, .jpeg"}
 
-class swagger(Resource):
-
-    def get(self):
-        return send_from_directory(CONST.SWAGGER_PATH , 'swagger.json')
-
-
-
-
 #run the app
 if __name__ == '__main__':
     CONST.CURRENT_DIRECTORY = os.getcwd() 
     REPO_PATH = CONST.CURRENT_DIRECTORY + "/temprepository/"
 
-    CONST.SWAGGER_PATH = CONST.CURRENT_DIRECTORY + '/../static/'
-    swaggerui_blueprint = get_swaggerui_blueprint(
-        '/swagger',
-        CONST.SWAGGER_PATH + 'swagger.json',
-        config={'app_name': "Louis Paganin - Fil Rouge"}
-    )
-    app.register_blueprint(swaggerui_blueprint, url_prefix='/swagger')
-
     app = Flask(__name__)
     app.config['UPLOAD_FOLDER'] = CONST.REPO_PATH
     api = Api(app)
     api.add_resource(upload, "/upload")
-    api.add_resource(swagger, "/swagger")
-    
+
+    CONST.SWAGGER_PATH = CONST.CURRENT_DIRECTORY + '/../static/'
+    swaggerui_blueprint = get_swaggerui_blueprint(
+        '/swagger',
+        CONST.SWAGGER_PATH,
+        config={'app_name': "Louis Paganin - Fil Rouge"}
+    )
+    app.register_blueprint(swaggerui_blueprint, url_prefix='/swagger')
     app.run(host=CONST.ADRESS, port=CONST.PORT)
