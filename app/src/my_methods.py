@@ -69,7 +69,10 @@ def getMetaDataAndData(path, extension):
     if extension == 'jpeg' or extension == 'jpg' or extension == 'png': 
         im = Image.open(path)
         metadata["file_name"] = os.path.basename(path).split('.')[0]
-        metadata["type"] = "jpeg Image (.jpeg)"
+        if extension == 'jpeg' or extension == 'jpg':
+            metadata["type"] = "jpeg Image (.jpeg)"
+        elif extension == 'png':
+            metadata["type"] = "png Image (.png)"
         metadata["width"] = im.width
         metadata["height"] = im.height
         im.close()
