@@ -57,12 +57,16 @@ def getMetaDataAndData(path, extension):
         #we first extract metadata
         metadata["file_name"] = os.path.basename(path).split('.')[0]
         metadata["type"] = "Comma-Separated Values file (.csv)"
+        metadata['size (bytes)'] = os.path.getsize(path)
         #colones et lignes
         #then extract data
         csvArray = []
-        csvReader = csv.DictReader(f) 
+        csvReader = csv.DictReader(f)
+        i = 0 
         for row in csvReader: 
             csvArray.append(row)
+            i += 1
+        metadata['number of rows'] = i
         data = csvArray
         f.close()
 
