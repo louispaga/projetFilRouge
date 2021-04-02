@@ -1,15 +1,15 @@
 import requests
 import json
-import unittest
 import CONST
-from PyPDF2 import PdfFileReader
+import os 
 from requests.auth import HTTPBasicAuth
 
-#TEST_FILES_PATH = CURRENT_DIRECTORY + "/../testFiles/"
+ADRESS_TEST =  'https://filrouge.louis.p2021.ajoga.fr'
+TEST_FILES_PATH = os.getcwd()
 auth = HTTPBasicAuth('louis', 'paganin')
 
 textfile = {"file" : open("/home/louis/filRouge/projetFilRouge/testFiles/testtext.txt", "r")}
-r=requests.post(CONST.ADRESS_TEST + '/upload', auth=auth, files = textfile)
+r=requests.post(ADRESS_TEST + '/upload', auth=auth, files = textfile)
 r = r.json()
 print(r)
 
@@ -32,3 +32,4 @@ jpg = {"file" : open("/home/louis/filRouge/projetFilRouge/testFiles/18.jpeg", 'r
 r=requests.post(CONST.ADRESS_TEST + "/upload", auth=auth, files = jpg)
 r = r.json()
 print(r)
+

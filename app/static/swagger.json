@@ -1,44 +1,44 @@
-{
-    "openapi": "3.0",
-    "info": {
-      "description": "API de stockage de fichier sur AWS S3, retourne le fichier sous format json ainsi que des metadatas",
-      "version": "1.0.0",
-      "title": "Louis Paganin - Fil Rouge",
-      "contact": {
-          "email": "louis.paganin@student-cs.fr"
-      },
-      "license": {
-        "name": "MIT",
-        "url": "https://opensource.org/licenses/MIT"
-      }
-    },
-    "servers": [
-        {
-          "url": "https://filrouge.louis.p2021.ajoga.fr"
-        }
-      ],
-      "tags": [
-        {
-            "name": "requetes sur fichier",
-            "description": "principales requetes qui peuvent etre effectuées sur les fichiers "
-        }
-      ],
-      
-      "paths": {
-
-        "/upload": {
-            "post": {
-                "tags": [
-                    "Gestionnaire de fichier"
-                ],
-                "summary": "uploader un fichier",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        }
-
-    }
-}
+-{
+-    "openapi": "3.0",
+-    "info": {
+-      "description": "API de stockage de fichier sur AWS S3, retourne le fichier sous format json ainsi que des metadatas",
+-      "version": "1.0.0",
+-      "title": "Louis Paganin - Fil Rouge",
+-      "contact": {
+-          "email": "louis.paganin@student-cs.fr"
+-      },
+-      "license": {
+-        "name": "MIT",
+-        "url": "https://opensource.org/licenses/MIT"
+-      }
+-    },
+-    "servers": [
+-        {
+-          "url": "https://filrouge.louis.p2021.ajoga.fr"
+-        }
+-      ],
+-      "tags": [
+-        {
+-            "name": "requetes sur fichier",
+-            "description": "principales requetes qui peuvent etre effectuées sur les fichiers "
+-        }
+-      ],
+-      
+-      "paths": {
+-
+-        "/upload": {
+-            "post": {
+-                "tags": [
+-                    "Gestionnaire de fichier"
+-                ],
+-                "summary": "uploader un fichier",
+-                "responses": {
+-                    "200": {
+-                        "description": "OK"
+-                    }
+-                }
+-            }
+-        }
+-
+-    }
+-}

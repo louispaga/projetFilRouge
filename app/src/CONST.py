@@ -17,8 +17,5 @@ SWAGGER_PATH = ""
 ADRESS = '0.0.0.0'
 PORT = 5000
 
-#ADRESS_TEST = 'http://127.0.0.1:5000'
-ADRESS_TEST =  'https://filrouge.louis.p2021.ajoga.fr'
-
 #AWS
 BUCKET_NAME = 'filrougestorage'

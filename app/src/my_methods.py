@@ -1,7 +1,7 @@
 #
 #   Python Project 
 #
-#Image API rep project
+#Projet fil rouge
 #Louis Paganin Mastère Spé SIO CentraleSupélec
 #
 #my_methods script
