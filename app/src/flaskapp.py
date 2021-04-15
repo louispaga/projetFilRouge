@@ -64,14 +64,14 @@ class upload(Resource):
 class swaggerjson(Resource):
 
     def get(self):
-        f = open(CONST.SWAGGER_PATH + '/../swagger/swagger.json')
+        f = open(CONST.SWAGGER_PATH + '/swagger/swagger.json')
         data = json.load(f)
         return data
 
 #run the app
 if __name__ == '__main__':
     CONST.CURRENT_DIRECTORY = os.getcwd() 
-    REPO_PATH = CONST.CURRENT_DIRECTORY + "/temprepository/"
+    REPO_PATH = CONST.CURRENT_DIRECTORY + "/src/temprepository/"
 
     app = Flask(__name__)
     app.config['UPLOAD_FOLDER'] = CONST.REPO_PATH

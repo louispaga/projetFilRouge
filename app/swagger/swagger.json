@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "L'application fil rouge a été réalisée dans le cadre du Mastère Spécialisé SIO à CentraleSupélec. Le projet consiste en la réalisation d'une API qui permet l'upload de fichiers txt, pdf, csv, png, jpeg dans un bucket S3 AWS. L'API retourne une transcription json du fichier ainsi que des métadatas sui lui sont associées",
+    "description": "l'application fil rouge a été réalisée dans le cadre du Mastère Spécialisé SIO à CentraleSupélec. Le projet consiste en la réalisation d'une API qui permet l'upload de fichiers txt, pdf, csv, png, jpeg dans un bucket S3 AWS. L'API retourne une transcription json du fichier ainsi que des métadatas sui lui sont associées",
     "version": "1.0.0",
     "title": "projet fil rouge",
     "termsOfService": "http://swagger.io/terms/",
