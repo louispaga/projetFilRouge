@@ -1,0 +1,58 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "L'application fil rouge a été réalisée dans le cadre du Mastère Spécialisé SIO à CentraleSupélec. Le projet consiste en la réalisation d'une API qui permet l'upload de fichiers txt, pdf, csv, png, jpeg dans un bucket S3 AWS. L'API retourne une transcription json du fichier ainsi que des métadatas sui lui sont associées",
+    "version": "1.0.0",
+    "title": "projet fil rouge",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "louis.paganin@student-cs.fr"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths": {
+    "/upload": {
+      "post": {
+        "tags": [
+          "Upload"
+        ],
+        "summary": "uploader un fichier",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "file",
+            "type": "file",
+            "description": "the file to upload",
+            "required": true
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "BasicAuth": {
+      "type": "basic"
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

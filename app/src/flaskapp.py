@@ -61,6 +61,13 @@ class upload(Resource):
         else: 
             return {"error" : "the format is not correct, this API accepts .txt, .pdf, .csv, .jpeg"}
 
+class swaggerjson(Resource):
+
+    def get(self):
+        f = open(CONST.SWAGGER_PATH + '/../swagger/swagger.json')
+        data = json.load(f)
+        return data
+
 #run the app
 if __name__ == '__main__':
     CONST.CURRENT_DIRECTORY = os.getcwd() 
@@ -70,12 +77,13 @@ if __name__ == '__main__':
     app.config['UPLOAD_FOLDER'] = CONST.REPO_PATH
     api = Api(app)
     api.add_resource(upload, "/upload")
+    api.add_resource(swaggerjson, "/swagger.json")
 
-    CONST.SWAGGER_PATH = CONST.CURRENT_DIRECTORY + '/../static/' + 'swagger.json'
+    CONST.SWAGGER_PATH = CONST.CURRENT_DIRECTORY
     print(CONST.SWAGGER_PATH)
     swaggerui_blueprint = get_swaggerui_blueprint(
         '/swagger',
-        CONST.SWAGGER_PATH,
+        CONST.API_URL + '/swagger.json',
         config={'app_name': "API FIL ROUGE LOUIS"}
     )
     app.register_blueprint(swaggerui_blueprint, url_prefix='/swagger')

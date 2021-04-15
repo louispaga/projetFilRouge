@@ -8,7 +8,7 @@
 
 #extensions the API accepts
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'txt', 'pdf', 'csv'}
-
+API_URL = "https://filrouge.louis.p2021.ajoga.fr"
 #path to the storage location
 CURRENT_DIRECTORY = "" 
 REPO_PATH = ""
