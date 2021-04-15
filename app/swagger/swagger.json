@@ -38,19 +38,19 @@
         ],
         "responses": {
           "405": {
-            "description": "Invalid input"
-          },
+             "message": "Invalid input"
+           },
            "200": {
-              "description": "Opération réalisée avec succès, renvoie un json avec deux keys - ['data'] et ['metadata']",
+              "message": "Opération réalisée avec succès, l'API renvoie un json avec deux keys - [data] et [metadata]"
             },
-                        "404": {
-              "description": "Ressource non trouvée",
+           "404": {
+              "message": "Ressource non trouvée"
             },
             "413": {
-              "description": "Taille du fichier trop grande",
+              "message": "Taille du fichier trop grande"
             },
             "500": {
-              "description": "Erreur interne du serveur",
+              "message": "Erreur interne du serveur"
             }
         },
         "security": [
